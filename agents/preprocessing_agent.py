@@ -1,6 +1,13 @@
 from typing import Dict, Any
 
 
+def get_value(obj, key, default=None):
+    if isinstance(obj, dict):
+        return obj.get(key, default)
+
+    return getattr(obj, key, default)
+
+
 def preprocess_session(session: Dict[str, Any]) -> Dict[str, Any]:
     events = session.get("events", [])
 
@@ -23,33 +30,54 @@ def preprocess_session(session: Dict[str, Any]) -> Dict[str, Any]:
             "ground_truth": session.get("ground_truth")
         }
 
-    timestamps = [
-        event.get("timestamp")
-        for event in events
-        if event.get("timestamp") is not None
-    ]
+    timestamps = []
 
-    page_views = sum(1 for event in events if event.get("type") == "page_view")
-    clicks = sum(1 for event in events if event.get("type") == "click")
-    scrolls = sum(1 for event in events if event.get("type") == "scroll")
+    for event in events:
+        timestamp = get_value(event, "timestamp")
 
-    pages = [
-        event.get("page")
-        for event in events
-        if event.get("page") is not None
-    ]
+        if timestamp is not None:
+            try:
+                timestamps.append(int(timestamp))
+            except:
+                pass
+
+    page_views = sum(
+        1 for event in events
+        if get_value(event, "type") == "page_view"
+    )
+
+    clicks = sum(
+        1 for event in events
+        if get_value(event, "type") == "click"
+    )
+
+    scrolls = sum(
+        1 for event in events
+        if get_value(event, "type") == "scroll"
+    )
+
+    pages = []
+
+    for event in events:
+        page = get_value(event, "page")
+
+        if page is not None:
+            pages.append(str(page))
+
+    if not pages:
+        pages = session.get("pages_visited", [])
 
     scroll_depths = []
 
     for event in events:
-      if (
-        event.get("type") == "scroll"
-        and event.get("depth_percent") is not None
-     ):
-        try:
-            scroll_depths.append(float(event.get("depth_percent")))
-        except:
-            pass
+        event_type = get_value(event, "type")
+        depth = get_value(event, "depth_percent")
+
+        if event_type == "scroll" and depth is not None:
+            try:
+                scroll_depths.append(float(depth))
+            except:
+                pass
 
     max_scroll_depth = max(scroll_depths) if scroll_depths else 0
     avg_scroll_depth = round(sum(scroll_depths) / len(scroll_depths), 2) if scroll_depths else 0

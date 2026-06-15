@@ -1,74 +1,132 @@
-# generate_sessions.py
-
 from langchain_groq import ChatGroq
 from dotenv import load_dotenv
+from schemas.session_schema import SessionData
+
 import json
 import os
 import time
 import uuid
 import random
 
+
 load_dotenv()
 
 llm = ChatGroq(
     model="llama-3.1-8b-instant",
-    temperature=0.8,
+    temperature=0.6,
     api_key=os.getenv("GROQ_API_KEY")
 )
+
 
 SCENARIOS = [
     {
         "persona": "price_sensitive_shopper",
         "drop_off_reason": "price_concern",
         "stage": "cart",
-        "behavior": "checks price multiple times, searches for coupons, adds to cart, sees shipping cost or total price, then exits"
+        "behavior": "checks price, coupon, discount, cart summary, total cost, then exits",
+        "required_events": [
+            "price",
+            "coupon",
+            "discount",
+            "cart",
+            "summary",
+            "total"
+        ]
     },
     {
         "persona": "trust_seeker",
         "drop_off_reason": "trust_concern",
         "stage": "product",
-        "behavior": "checks reviews, ratings, return policy, about us page, verified purchase information, then exits without buying"
+        "behavior": "checks reviews, ratings, verified purchases, about us, return policy, then exits",
+        "required_events": [
+            "review",
+            "rating",
+            "verified",
+            "about",
+            "return"
+        ]
     },
     {
         "persona": "comparison_shopper",
         "drop_off_reason": "comparison_shopping",
         "stage": "product",
-        "behavior": "visits multiple product pages, compares specs and prices, opens same product repeatedly, never reaches checkout"
+        "behavior": "visits multiple product pages, compares specs, prices, features, then exits",
+        "required_events": [
+            "compare",
+            "specs",
+            "product-1",
+            "product-2",
+            "product-3"
+        ]
     },
     {
         "persona": "checkout_frustrated",
         "drop_off_reason": "checkout_friction",
         "stage": "checkout",
-        "behavior": "adds product to cart, starts checkout, faces login or account creation friction, clicks back, retries, then exits"
+        "behavior": "adds to cart, goes to checkout, faces login/account creation, retries, exits",
+        "required_events": [
+            "add_to_cart",
+            "checkout",
+            "login",
+            "account",
+            "create_account"
+        ]
     },
     {
         "persona": "low_intent_browser",
         "drop_off_reason": "low_purchase_intent",
         "stage": "home",
-        "behavior": "lands on homepage, scrolls briefly, clicks one or two products, spends little time, exits quickly"
+        "behavior": "briefly browses homepage and one product, no cart, no checkout, exits quickly",
+        "required_events": [
+            "homepage",
+            "browse",
+            "exit"
+        ]
     },
     {
         "persona": "size_uncertain_user",
         "drop_off_reason": "product_fit_concern",
         "stage": "product",
-        "behavior": "opens size chart multiple times, zooms product images, checks return policy, hesitates, exits without checkout"
+        "behavior": "opens size chart, checks fit, zooms product images, checks return policy, exits",
+        "required_events": [
+            "size_chart",
+            "fit",
+            "zoom",
+            "image",
+            "return"
+        ]
     },
     {
         "persona": "delivery_worried_user",
         "drop_off_reason": "delivery_concern",
         "stage": "cart",
-        "behavior": "adds to cart, checks delivery date, shipping policy, delivery charges, pincode availability, then exits"
+        "behavior": "checks delivery date, shipping charges, pincode availability, delivery policy, then exits",
+        "required_events": [
+            "delivery",
+            "shipping",
+            "pincode",
+            "charges",
+            "date"
+        ]
     },
     {
         "persona": "information_seeker",
         "drop_off_reason": "product_information_gap",
         "stage": "product",
-        "behavior": "opens product details, zooms images, checks material, description, FAQs, but cannot find enough information and exits"
+        "behavior": "opens product details, description, material, FAQ, images, but exits due to missing info",
+        "required_events": [
+            "details",
+            "description",
+            "material",
+            "faq",
+            "information"
+        ]
     }
 ]
 
+
 PROMPT_TEMPLATE = """
-Generate ONE realistic e-commerce user session as valid JSON.
+Generate ONE realistic ecommerce session as VALID JSON only.
 
 Scenario:
 Persona: {persona}
@@ -76,12 +134,16 @@ Drop-off reason: {drop_off_reason}
 Exit stage: {stage}
 Behavior: {behavior}
 
-Return JSON with this EXACT structure:
+IMPORTANT:
+The session MUST clearly contain these required keywords in page paths or element names:
+{required_events}
+
+Return JSON with this exact structure:
 
 {{
   "session_id": "sess_random6chars",
   "user_id": "anon_random4digits",
-  "device": "desktop or mobile",
+  "device": "desktop",
   "start_time": 1718000000,
   "events": [
     {{
@@ -90,6 +152,20 @@ Return JSON with this EXACT structure:
       "page": "/",
       "element": null,
       "depth_percent": null
+    }},
+    {{
+      "type": "click",
+      "timestamp": 1718000010,
+      "page": "/products/sample-product",
+      "element": "price",
+      "depth_percent": null
+    }},
+    {{
+      "type": "scroll",
+      "timestamp": 1718000020,
+      "page": "/products/sample-product",
+      "element": null,
+      "depth_percent": 70
     }}
   ],
   "pages_visited": ["/", "/products/sample-product", "EXIT"]
@@ -97,16 +173,15 @@ Return JSON with this EXACT structure:
 
 Rules:
 - Return ONLY valid JSON.
-- Do not use markdown.
-- Do not add explanation.
-- Include 15 to 40 events.
-- Events must be chronologically ordered.
-- Behavior must clearly reflect the drop-off reason.
-- Use realistic e-commerce page paths.
-- type must be only: "page_view", "click", or "scroll".
-- element should be null for page_view and scroll unless needed.
-- depth_percent should be null except for scroll events.
+- No markdown.
+- No explanation.
+- Include 15 to 35 events.
+- Timestamps must increase by 5-20 seconds each event.
+- type must be one of: page_view, click, scroll, search, input, exit, zoom.
+- depth_percent must be a number only for scroll events, otherwise null.
+- page and element names must contain the required keywords.
 """
+
 
 def clean_llm_response(response: str) -> str:
     clean = response.strip()
@@ -127,7 +202,6 @@ def generate_session(scenario: dict) -> dict:
 
     session = json.loads(clean_response)
 
-    # Force unique IDs because LLM often repeats same IDs
     session["session_id"] = f"sess_{uuid.uuid4().hex[:6]}"
     session["user_id"] = f"anon_{random.randint(1000, 9999)}"
 
@@ -137,10 +211,11 @@ def generate_session(scenario: dict) -> dict:
         "persona": scenario["persona"]
     }
 
-    return session
+    validated = SessionData.model_validate(session)
+    return validated.model_dump()
 
 
-def generate_dataset(sessions_per_scenario: int = 5) -> list:
+def generate_dataset(sessions_per_scenario: int = 10) -> list:
     dataset = []
 
     for scenario in SCENARIOS:
@@ -148,7 +223,7 @@ def generate_dataset(sessions_per_scenario: int = 5) -> list:
 
         generated_count = 0
         attempts = 0
-        max_attempts = sessions_per_scenario * 4
+        max_attempts = sessions_per_scenario * 6
 
         while generated_count < sessions_per_scenario and attempts < max_attempts:
             attempts += 1
@@ -158,12 +233,16 @@ def generate_dataset(sessions_per_scenario: int = 5) -> list:
                 dataset.append(session)
                 generated_count += 1
                 print(f"  ✓ Generated session {generated_count}")
-
-                time.sleep(0.5)
+                time.sleep(1)
 
             except Exception as e:
                 print(f"  ✗ Failed attempt {attempts}: {e}")
-                time.sleep(1)
+
+                if "429" in str(e) or "rate limit" in str(e).lower():
+                    print("  Waiting 10 seconds due to rate limit...")
+                    time.sleep(10)
+                else:
+                    time.sleep(2)
 
         if generated_count < sessions_per_scenario:
             print(f"  ⚠ Only generated {generated_count}/{sessions_per_scenario}")
@@ -173,17 +252,18 @@ def generate_dataset(sessions_per_scenario: int = 5) -> list:
 
 if __name__ == "__main__":
     sessions_count = 10
+    output_file = "data/synthetic_sessions.jsonl"
+
+    os.makedirs("data", exist_ok=True)
 
     print(f"DEBUG sessions_per_scenario = {sessions_count}")
     print(f"DEBUG expected sessions = {len(SCENARIOS) * sessions_count}")
 
     dataset = generate_dataset(sessions_per_scenario=sessions_count)
 
-    os.makedirs("data", exist_ok=True)
-
-    with open("data/synthetic_sessions.jsonl", "w", encoding="utf-8") as f:
+    with open(output_file, "w", encoding="utf-8") as file:
         for session in dataset:
-            f.write(json.dumps(session) + "\n")
+            file.write(json.dumps(session) + "\n")
 
     print(f"\n✅ Generated {len(dataset)} sessions")
-    print("Saved to data/synthetic_sessions.jsonl")
+    print(f"Saved to {output_file}")

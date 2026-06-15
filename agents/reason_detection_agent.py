@@ -24,20 +24,21 @@ def detect_reason(
     cart_additions = metrics.get("cart_additions", 0)
     checkout_attempts = metrics.get("checkout_attempts", 0)
 
-    reason_scores["price_concern"] += metrics.get("price_checks", 0) * 0.8
-    reason_scores["price_concern"] += metrics.get("coupon_searches", 0) * 1.0
+    # Strong reason scores
+    reason_scores["price_concern"] += metrics.get("price_checks", 0) * 1.5
+    reason_scores["price_concern"] += metrics.get("coupon_searches", 0) * 2.0
 
     reason_scores["trust_concern"] += metrics.get("review_checks", 0) * 0.8
-    reason_scores["trust_concern"] += metrics.get("return_policy_checks", 0) * 0.4
+    reason_scores["trust_concern"] += metrics.get("return_policy_checks", 0) * 0.6
 
-    reason_scores["product_fit_concern"] += metrics.get("size_chart_opens", 0) * 1.5
-    reason_scores["product_fit_concern"] += metrics.get("image_zooms", 0) * 0.3
-    reason_scores["product_fit_concern"] += metrics.get("return_policy_checks", 0) * 0.3
+    reason_scores["product_fit_concern"] += metrics.get("size_chart_opens", 0) * 1.8
+    reason_scores["product_fit_concern"] += metrics.get("image_zooms", 0) * 0.6
+    reason_scores["product_fit_concern"] += metrics.get("return_policy_checks", 0) * 0.4
 
-    reason_scores["checkout_friction"] += checkout_attempts * 1.0
+    reason_scores["checkout_friction"] += checkout_attempts * 1.2
     reason_scores["checkout_friction"] += metrics.get("login_or_account_hits", 0) * 1.2
 
-    reason_scores["delivery_concern"] += metrics.get("delivery_checks", 0) * 1.0
+    reason_scores["delivery_concern"] += metrics.get("delivery_checks", 0) * 1.2
 
     reason_scores["comparison_shopping"] += metrics.get("comparison_actions", 0) * 1.2
     reason_scores["comparison_shopping"] += metrics.get("product_page_visits", 0) * 0.3
@@ -47,18 +48,21 @@ def detect_reason(
     reason_scores["product_information_gap"] += metrics.get("material_checks", 0) * 1.2
     reason_scores["product_information_gap"] += metrics.get("image_zooms", 0) * 0.2
 
-    if purchase_intent == "low":
-        reason_scores["low_purchase_intent"] += 2
-
-    if signals.get("low_purchase_intent"):
-        reason_scores["low_purchase_intent"] += 2
+    # Very important:
+    # low_purchase_intent should only win when there are no strong behavioural signals.
+    non_low_max_score = max(
+        score
+        for reason, score in reason_scores.items()
+        if reason != "low_purchase_intent"
+    )
 
     if (
         purchase_intent == "low"
         and cart_additions == 0
         and checkout_attempts == 0
+        and non_low_max_score < 0.6
     ):
-        reason_scores["low_purchase_intent"] += 1
+        reason_scores["low_purchase_intent"] += 2.3
 
     sorted_reasons = sorted(
         reason_scores.items(),

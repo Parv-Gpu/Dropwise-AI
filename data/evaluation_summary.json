@@ -1,0 +1,1678 @@
+{
+  "total_sessions": 80,
+  "correct_predictions": 61,
+  "wrong_predictions": 19,
+  "accuracy": 76.25,
+  "predicted_reason_distribution": {
+    "low_purchase_intent": 5,
+    "price_concern": 2,
+    "product_fit_concern": 22,
+    "comparison_shopping": 13,
+    "trust_concern": 8,
+    "checkout_friction": 10,
+    "delivery_concern": 10,
+    "product_information_gap": 10
+  },
+  "ground_truth_reason_distribution": {
+    "price_concern": 10,
+    "trust_concern": 10,
+    "comparison_shopping": 10,
+    "checkout_friction": 10,
+    "low_purchase_intent": 10,
+    "product_fit_concern": 10,
+    "delivery_concern": 10,
+    "product_information_gap": 10
+  },
+  "wrong_prediction_details": [
+    {
+      "session_id": "sess_4c5d9c",
+      "user_id": "anon_5119",
+      "device": "desktop",
+      "predicted_reason": "low_purchase_intent",
+      "secondary_reason": null,
+      "ground_truth_reason": "price_concern",
+      "is_correct": false,
+      "confidence_score": 0.88,
+      "confidence_level": "high",
+      "reason_scores": {
+        "price_concern": 0.0,
+        "trust_concern": 0.0,
+        "product_fit_concern": 0.0,
+        "checkout_friction": 0.0,
+        "delivery_concern": 0.0,
+        "comparison_shopping": 0.3,
+        "product_information_gap": 0.0,
+        "low_purchase_intent": 2.3
+      },
+      "preprocessing": {
+        "session_id": "sess_4c5d9c",
+        "user_id": "anon_5119",
+        "device": "desktop",
+        "session_duration": 0,
+        "total_events": 17,
+        "page_views": 3,
+        "clicks": 6,
+        "scrolls": 4,
+        "max_scroll_depth": 0,
+        "avg_scroll_depth": 0,
+        "unique_pages": 4,
+        "pages_visited": [
+          "/",
+          "/products/sample-product",
+          "/cart",
+          "/exit"
+        ],
+        "entry_page": "/",
+        "actual_exit_page": "/exit",
+        "ground_truth": {
+          "primary_reason": "price_concern",
+          "drop_off_stage": "cart",
+          "persona": "price_sensitive_shopper"
+        }
+      },
+      "behavior_metrics": {
+        "price_checks": 0,
+        "coupon_searches": 0,
+        "review_checks": 0,
+        "return_policy_checks": 0,
+        "size_chart_opens": 0,
+        "image_zooms": 0,
+        "cart_additions": 0,
+        "checkout_attempts": 0,
+        "login_or_account_hits": 0,
+        "delivery_checks": 0,
+        "comparison_actions": 0,
+        "product_detail_checks": 0,
+        "faq_checks": 0,
+        "material_checks": 0,
+        "spec_checks": 0,
+        "back_clicks": 0,
+        "exit_clicks": 2,
+        "product_page_visits": 1,
+        "cta_clicks": 0
+      },
+      "signals": {
+        "price_sensitive": false,
+        "trust_seeking": false,
+        "product_fit_concern": false,
+        "checkout_friction": false,
+        "delivery_concern": false,
+        "comparison_behavior": false,
+        "low_purchase_intent": true,
+        "purchase_intent": "low"
+      },
+      "evidence": [
+        "Session duration was only 0 seconds.",
+        "CTA clicks were 0, indicating weak purchase intent."
+      ],
+      "recommended_actions": [
+        "Use personalized product recommendations.",
+        "Improve homepage hero section and product discovery.",
+        "Retarget user later with relevant offers."
+      ]
+    },
+    {
+      "session_id": "sess_3acf89",
+      "user_id": "anon_6700",
+      "device": "desktop",
+      "predicted_reason": "low_purchase_intent",
+      "secondary_reason": null,
+      "ground_truth_reason": "price_concern",
+      "is_correct": false,
+      "confidence_score": 0.88,
+      "confidence_level": "high",
+      "reason_scores": {
+        "price_concern": 0.0,
+        "trust_concern": 0.0,
+        "product_fit_concern": 0.0,
+        "checkout_friction": 0.0,
+        "delivery_concern": 0.0,
+        "comparison_shopping": 0.3,
+        "product_information_gap": 0.0,
+        "low_purchase_intent": 2.3
+      },
+      "preprocessing": {
+        "session_id": "sess_3acf89",
+        "user_id": "anon_6700",
+        "device": "desktop",
+        "session_duration": 0,
+        "total_events": 16,
+        "page_views": 7,
+        "clicks": 7,
+        "scrolls": 1,
+        "max_scroll_depth": 0,
+        "avg_scroll_depth": 0,
+        "unique_pages": 4,
+        "pages_visited": [
+          "/",
+          "/products/sample-product",
+          "/cart",
+          "/exit"
+        ],
+        "entry_page": "/",
+        "actual_exit_page": "/exit",
+        "ground_truth": {
+          "primary_reason": "price_concern",
+          "drop_off_stage": "cart",
+          "persona": "price_sensitive_shopper"
+        }
+      },
+      "behavior_metrics": {
+        "price_checks": 0,
+        "coupon_searches": 0,
+        "review_checks": 0,
+        "return_policy_checks": 0,
+        "size_chart_opens": 0,
+        "image_zooms": 0,
+        "cart_additions": 0,
+        "checkout_attempts": 0,
+        "login_or_account_hits": 0,
+        "delivery_checks": 0,
+        "comparison_actions": 0,
+        "product_detail_checks": 0,
+        "faq_checks": 0,
+        "material_checks": 0,
+        "spec_checks": 0,
+        "back_clicks": 0,
+        "exit_clicks": 2,
+        "product_page_visits": 1,
+        "cta_clicks": 0
+      },
+      "signals": {
+        "price_sensitive": false,
+        "trust_seeking": false,
+        "product_fit_concern": false,
+        "checkout_friction": false,
+        "delivery_concern": false,
+        "comparison_behavior": false,
+        "low_purchase_intent": true,
+        "purchase_intent": "low"
+      },
+      "evidence": [
+        "Session duration was only 0 seconds.",
+        "CTA clicks were 0, indicating weak purchase intent."
+      ],
+      "recommended_actions": [
+        "Use personalized product recommendations.",
+        "Improve homepage hero section and product discovery.",
+        "Retarget user later with relevant offers."
+      ]
+    },
+    {
+      "session_id": "sess_c1db09",
+      "user_id": "anon_2423",
+      "device": "desktop",
+      "predicted_reason": "product_fit_concern",
+      "secondary_reason": null,
+      "ground_truth_reason": "price_concern",
+      "is_correct": false,
+      "confidence_score": 0.43,
+      "confidence_level": "low",
+      "reason_scores": {
+        "price_concern": 0.0,
+        "trust_concern": 0.0,
+        "product_fit_concern": 0.6,
+        "checkout_friction": 0.0,
+        "delivery_concern": 0.0,
+        "comparison_shopping": 0.6,
+        "product_information_gap": 0.2,
+        "low_purchase_intent": 0
+      },
+      "preprocessing": {
+        "session_id": "sess_c1db09",
+        "user_id": "anon_2423",
+        "device": "desktop",
+        "session_duration": 0,
+        "total_events": 18,
+        "page_views": 4,
+        "clicks": 9,
+        "scrolls": 1,
+        "max_scroll_depth": 0,
+        "avg_scroll_depth": 0,
+        "unique_pages": 4,
+        "pages_visited": [
+          "/",
+          "/products",
+          "/products/sample-product",
+          "/cart",
+          "/"
+        ],
+        "entry_page": "/",
+        "actual_exit_page": "/",
+        "ground_truth": {
+          "primary_reason": "price_concern",
+          "drop_off_stage": "cart",
+          "persona": "price_sensitive_shopper"
+        }
+      },
+      "behavior_metrics": {
+        "price_checks": 0,
+        "coupon_searches": 0,
+        "review_checks": 0,
+        "return_policy_checks": 0,
+        "size_chart_opens": 0,
+        "image_zooms": 1,
+        "cart_additions": 0,
+        "checkout_attempts": 0,
+        "login_or_account_hits": 0,
+        "delivery_checks": 0,
+        "comparison_actions": 0,
+        "product_detail_checks": 0,
+        "faq_checks": 0,
+        "material_checks": 0,
+        "spec_checks": 0,
+        "back_clicks": 0,
+        "exit_clicks": 1,
+        "product_page_visits": 2,
+        "cta_clicks": 0
+      },
+      "signals": {
+        "price_sensitive": false,
+        "trust_seeking": false,
+        "product_fit_concern": false,
+        "checkout_friction": false,
+        "delivery_concern": false,
+        "comparison_behavior": false,
+        "low_purchase_intent": true,
+        "purchase_intent": "low"
+      },
+      "evidence": [
+        "User zoomed or inspected product images 1 times."
+      ],
+      "recommended_actions": [
+        "Improve size chart visibility and clarity.",
+        "Add AI-based size recommendation or fit guide.",
+        "Show customer fit reviews such as 'true to size' feedback."
+      ]
+    },
+    {
+      "session_id": "sess_c9dd06",
+      "user_id": "anon_8975",
+      "device": "desktop",
+      "predicted_reason": "product_fit_concern",
+      "secondary_reason": null,
+      "ground_truth_reason": "price_concern",
+      "is_correct": false,
+      "confidence_score": 0.55,
+      "confidence_level": "medium",
+      "reason_scores": {
+        "price_concern": 0.0,
+        "trust_concern": 0.0,
+        "product_fit_concern": 0.6,
+        "checkout_friction": 0.0,
+        "delivery_concern": 0.0,
+        "comparison_shopping": 0.3,
+        "product_information_gap": 0.2,
+        "low_purchase_intent": 0
+      },
+      "preprocessing": {
+        "session_id": "sess_c9dd06",
+        "user_id": "anon_8975",
+        "device": "desktop",
+        "session_duration": 0,
+        "total_events": 20,
+        "page_views": 4,
+        "clicks": 8,
+        "scrolls": 2,
+        "max_scroll_depth": 0,
+        "avg_scroll_depth": 0,
+        "unique_pages": 4,
+        "pages_visited": [
+          "/",
+          "/products/sample-product",
+          "/cart",
+          "EXIT"
+        ],
+        "entry_page": "/",
+        "actual_exit_page": "EXIT",
+        "ground_truth": {
+          "primary_reason": "price_concern",
+          "drop_off_stage": "cart",
+          "persona": "price_sensitive_shopper"
+        }
+      },
+      "behavior_metrics": {
+        "price_checks": 0,
+        "coupon_searches": 0,
+        "review_checks": 0,
+        "return_policy_checks": 0,
+        "size_chart_opens": 0,
+        "image_zooms": 1,
+        "cart_additions": 0,
+        "checkout_attempts": 0,
+        "login_or_account_hits": 0,
+        "delivery_checks": 0,
+        "comparison_actions": 0,
+        "product_detail_checks": 0,
+        "faq_checks": 0,
+        "material_checks": 0,
+        "spec_checks": 0,
+        "back_clicks": 0,
+        "exit_clicks": 3,
+        "product_page_visits": 1,
+        "cta_clicks": 0
+      },
+      "signals": {
+        "price_sensitive": false,
+        "trust_seeking": false,
+        "product_fit_concern": false,
+        "checkout_friction": false,
+        "delivery_concern": false,
+        "comparison_behavior": false,
+        "low_purchase_intent": true,
+        "purchase_intent": "low"
+      },
+      "evidence": [
+        "User zoomed or inspected product images 1 times."
+      ],
+      "recommended_actions": [
+        "Improve size chart visibility and clarity.",
+        "Add AI-based size recommendation or fit guide.",
+        "Show customer fit reviews such as 'true to size' feedback."
+      ]
+    },
+    {
+      "session_id": "sess_e20ace",
+      "user_id": "anon_1140",
+      "device": "desktop",
+      "predicted_reason": "product_fit_concern",
+      "secondary_reason": null,
+      "ground_truth_reason": "price_concern",
+      "is_correct": false,
+      "confidence_score": 0.55,
+      "confidence_level": "medium",
+      "reason_scores": {
+        "price_concern": 0.0,
+        "trust_concern": 0.0,
+        "product_fit_concern": 0.6,
+        "checkout_friction": 0.0,
+        "delivery_concern": 0.0,
+        "comparison_shopping": 0.3,
+        "product_information_gap": 0.2,
+        "low_purchase_intent": 0
+      },
+      "preprocessing": {
+        "session_id": "sess_e20ace",
+        "user_id": "anon_1140",
+        "device": "desktop",
+        "session_duration": 0,
+        "total_events": 20,
+        "page_views": 3,
+        "clicks": 8,
+        "scrolls": 3,
+        "max_scroll_depth": 0,
+        "avg_scroll_depth": 0,
+        "unique_pages": 4,
+        "pages_visited": [
+          "/",
+          "/products/sample-product",
+          "/cart",
+          "EXIT"
+        ],
+        "entry_page": "/",
+        "actual_exit_page": "EXIT",
+        "ground_truth": {
+          "primary_reason": "price_concern",
+          "drop_off_stage": "cart",
+          "persona": "price_sensitive_shopper"
+        }
+      },
+      "behavior_metrics": {
+        "price_checks": 0,
+        "coupon_searches": 0,
+        "review_checks": 0,
+        "return_policy_checks": 0,
+        "size_chart_opens": 0,
+        "image_zooms": 1,
+        "cart_additions": 0,
+        "checkout_attempts": 0,
+        "login_or_account_hits": 0,
+        "delivery_checks": 0,
+        "comparison_actions": 0,
+        "product_detail_checks": 0,
+        "faq_checks": 0,
+        "material_checks": 0,
+        "spec_checks": 0,
+        "back_clicks": 0,
+        "exit_clicks": 2,
+        "product_page_visits": 1,
+        "cta_clicks": 0
+      },
+      "signals": {
+        "price_sensitive": false,
+        "trust_seeking": false,
+        "product_fit_concern": false,
+        "checkout_friction": false,
+        "delivery_concern": false,
+        "comparison_behavior": false,
+        "low_purchase_intent": true,
+        "purchase_intent": "low"
+      },
+      "evidence": [
+        "User zoomed or inspected product images 1 times."
+      ],
+      "recommended_actions": [
+        "Improve size chart visibility and clarity.",
+        "Add AI-based size recommendation or fit guide.",
+        "Show customer fit reviews such as 'true to size' feedback."
+      ]
+    },
+    {
+      "session_id": "sess_1d4abe",
+      "user_id": "anon_7529",
+      "device": "desktop",
+      "predicted_reason": "low_purchase_intent",
+      "secondary_reason": null,
+      "ground_truth_reason": "price_concern",
+      "is_correct": false,
+      "confidence_score": 0.88,
+      "confidence_level": "high",
+      "reason_scores": {
+        "price_concern": 0.0,
+        "trust_concern": 0.0,
+        "product_fit_concern": 0.0,
+        "checkout_friction": 0.0,
+        "delivery_concern": 0.0,
+        "comparison_shopping": 0.3,
+        "product_information_gap": 0.0,
+        "low_purchase_intent": 2.3
+      },
+      "preprocessing": {
+        "session_id": "sess_1d4abe",
+        "user_id": "anon_7529",
+        "device": "desktop",
+        "session_duration": 0,
+        "total_events": 14,
+        "page_views": 4,
+        "clicks": 6,
+        "scrolls": 1,
+        "max_scroll_depth": 0,
+        "avg_scroll_depth": 0,
+        "unique_pages": 4,
+        "pages_visited": [
+          "/",
+          "/products/sample-product",
+          "/cart",
+          "EXIT"
+        ],
+        "entry_page": "/",
+        "actual_exit_page": "EXIT",
+        "ground_truth": {
+          "primary_reason": "price_concern",
+          "drop_off_stage": "cart",
+          "persona": "price_sensitive_shopper"
+        }
+      },
+      "behavior_metrics": {
+        "price_checks": 0,
+        "coupon_searches": 0,
+        "review_checks": 0,
+        "return_policy_checks": 0,
+        "size_chart_opens": 0,
+        "image_zooms": 0,
+        "cart_additions": 0,
+        "checkout_attempts": 0,
+        "login_or_account_hits": 0,
+        "delivery_checks": 0,
+        "comparison_actions": 0,
+        "product_detail_checks": 0,
+        "faq_checks": 0,
+        "material_checks": 0,
+        "spec_checks": 0,
+        "back_clicks": 0,
+        "exit_clicks": 2,
+        "product_page_visits": 1,
+        "cta_clicks": 0
+      },
+      "signals": {
+        "price_sensitive": false,
+        "trust_seeking": false,
+        "product_fit_concern": false,
+        "checkout_friction": false,
+        "delivery_concern": false,
+        "comparison_behavior": false,
+        "low_purchase_intent": true,
+        "purchase_intent": "low"
+      },
+      "evidence": [
+        "Session duration was only 0 seconds.",
+        "CTA clicks were 0, indicating weak purchase intent."
+      ],
+      "recommended_actions": [
+        "Use personalized product recommendations.",
+        "Improve homepage hero section and product discovery.",
+        "Retarget user later with relevant offers."
+      ]
+    },
+    {
+      "session_id": "sess_19951e",
+      "user_id": "anon_2112",
+      "device": "desktop",
+      "predicted_reason": "product_fit_concern",
+      "secondary_reason": null,
+      "ground_truth_reason": "price_concern",
+      "is_correct": false,
+      "confidence_score": 0.55,
+      "confidence_level": "medium",
+      "reason_scores": {
+        "price_concern": 0.0,
+        "trust_concern": 0.0,
+        "product_fit_concern": 0.6,
+        "checkout_friction": 0.0,
+        "delivery_concern": 0.0,
+        "comparison_shopping": 0.3,
+        "product_information_gap": 0.2,
+        "low_purchase_intent": 0
+      },
+      "preprocessing": {
+        "session_id": "sess_19951e",
+        "user_id": "anon_2112",
+        "device": "desktop",
+        "session_duration": 0,
+        "total_events": 18,
+        "page_views": 2,
+        "clicks": 10,
+        "scrolls": 2,
+        "max_scroll_depth": 0,
+        "avg_scroll_depth": 0,
+        "unique_pages": 4,
+        "pages_visited": [
+          "/",
+          "/products/sample-product",
+          "/cart",
+          "EXIT"
+        ],
+        "entry_page": "/",
+        "actual_exit_page": "EXIT",
+        "ground_truth": {
+          "primary_reason": "price_concern",
+          "drop_off_stage": "cart",
+          "persona": "price_sensitive_shopper"
+        }
+      },
+      "behavior_metrics": {
+        "price_checks": 0,
+        "coupon_searches": 0,
+        "review_checks": 0,
+        "return_policy_checks": 0,
+        "size_chart_opens": 0,
+        "image_zooms": 1,
+        "cart_additions": 0,
+        "checkout_attempts": 0,
+        "login_or_account_hits": 0,
+        "delivery_checks": 0,
+        "comparison_actions": 0,
+        "product_detail_checks": 0,
+        "faq_checks": 0,
+        "material_checks": 0,
+        "spec_checks": 0,
+        "back_clicks": 0,
+        "exit_clicks": 2,
+        "product_page_visits": 1,
+        "cta_clicks": 0
+      },
+      "signals": {
+        "price_sensitive": false,
+        "trust_seeking": false,
+        "product_fit_concern": false,
+        "checkout_friction": false,
+        "delivery_concern": false,
+        "comparison_behavior": false,
+        "low_purchase_intent": true,
+        "purchase_intent": "low"
+      },
+      "evidence": [
+        "User zoomed or inspected product images 1 times."
+      ],
+      "recommended_actions": [
+        "Improve size chart visibility and clarity.",
+        "Add AI-based size recommendation or fit guide.",
+        "Show customer fit reviews such as 'true to size' feedback."
+      ]
+    },
+    {
+      "session_id": "sess_34fcd1",
+      "user_id": "anon_4406",
+      "device": "desktop",
+      "predicted_reason": "comparison_shopping",
+      "secondary_reason": "price_concern",
+      "ground_truth_reason": "price_concern",
+      "is_correct": false,
+      "confidence_score": 0.54,
+      "confidence_level": "medium",
+      "reason_scores": {
+        "price_concern": 1.5,
+        "trust_concern": 0.0,
+        "product_fit_concern": 0.6,
+        "checkout_friction": 0.0,
+        "delivery_concern": 0.0,
+        "comparison_shopping": 2.6999999999999997,
+        "product_information_gap": 0.2,
+        "low_purchase_intent": 0
+      },
+      "preprocessing": {
+        "session_id": "sess_34fcd1",
+        "user_id": "anon_4406",
+        "device": "desktop",
+        "session_duration": 0,
+        "total_events": 18,
+        "page_views": 2,
+        "clicks": 8,
+        "scrolls": 3,
+        "max_scroll_depth": 0,
+        "avg_scroll_depth": 0,
+        "unique_pages": 6,
+        "pages_visited": [
+          "/",
+          "/cart/summary",
+          "/cart",
+          "/cart",
+          "/products/search",
+          "/products/search",
+          "/products/search",
+          "/products/search",
+          "/products/search",
+          "/products/search",
+          "/products/search",
+          "/products/sample-product",
+          "/products/sample-product",
+          "EXIT"
+        ],
+        "entry_page": "/",
+        "actual_exit_page": "EXIT",
+        "ground_truth": {
+          "primary_reason": "price_concern",
+          "drop_off_stage": "cart",
+          "persona": "price_sensitive_shopper"
+        }
+      },
+      "behavior_metrics": {
+        "price_checks": 1,
+        "coupon_searches": 0,
+        "review_checks": 0,
+        "return_policy_checks": 0,
+        "size_chart_opens": 0,
+        "image_zooms": 1,
+        "cart_additions": 0,
+        "checkout_attempts": 0,
+        "login_or_account_hits": 0,
+        "delivery_checks": 0,
+        "comparison_actions": 0,
+        "product_detail_checks": 0,
+        "faq_checks": 0,
+        "material_checks": 0,
+        "spec_checks": 0,
+        "back_clicks": 0,
+        "exit_clicks": 3,
+        "product_page_visits": 9,
+        "cta_clicks": 0
+      },
+      "signals": {
+        "price_sensitive": true,
+        "trust_seeking": false,
+        "product_fit_concern": false,
+        "checkout_friction": false,
+        "delivery_concern": false,
+        "comparison_behavior": true,
+        "low_purchase_intent": false,
+        "purchase_intent": "medium"
+      },
+      "evidence": [
+        "User visited multiple product pages without moving to checkout."
+      ],
+      "recommended_actions": [
+        "Add product comparison table.",
+        "Highlight unique selling points clearly.",
+        "Show competitor-price/value comparison if possible."
+      ]
+    },
+    {
+      "session_id": "sess_6f47c9",
+      "user_id": "anon_2790",
+      "device": "desktop",
+      "predicted_reason": "product_fit_concern",
+      "secondary_reason": null,
+      "ground_truth_reason": "trust_concern",
+      "is_correct": false,
+      "confidence_score": 0.55,
+      "confidence_level": "medium",
+      "reason_scores": {
+        "price_concern": 0.0,
+        "trust_concern": 0.0,
+        "product_fit_concern": 0.6,
+        "checkout_friction": 0.0,
+        "delivery_concern": 0.0,
+        "comparison_shopping": 0.3,
+        "product_information_gap": 0.2,
+        "low_purchase_intent": 0
+      },
+      "preprocessing": {
+        "session_id": "sess_6f47c9",
+        "user_id": "anon_2790",
+        "device": "desktop",
+        "session_duration": 0,
+        "total_events": 17,
+        "page_views": 6,
+        "clicks": 7,
+        "scrolls": 2,
+        "max_scroll_depth": 0,
+        "avg_scroll_depth": 0,
+        "unique_pages": 3,
+        "pages_visited": [
+          "/",
+          "/products/sample-product",
+          "EXIT"
+        ],
+        "entry_page": "/",
+        "actual_exit_page": "EXIT",
+        "ground_truth": {
+          "primary_reason": "trust_concern",
+          "drop_off_stage": "product",
+          "persona": "trust_seeker"
+        }
+      },
+      "behavior_metrics": {
+        "price_checks": 0,
+        "coupon_searches": 0,
+        "review_checks": 0,
+        "return_policy_checks": 0,
+        "size_chart_opens": 0,
+        "image_zooms": 1,
+        "cart_additions": 0,
+        "checkout_attempts": 0,
+        "login_or_account_hits": 0,
+        "delivery_checks": 0,
+        "comparison_actions": 0,
+        "product_detail_checks": 0,
+        "faq_checks": 0,
+        "material_checks": 0,
+        "spec_checks": 0,
+        "back_clicks": 0,
+        "exit_clicks": 2,
+        "product_page_visits": 1,
+        "cta_clicks": 0
+      },
+      "signals": {
+        "price_sensitive": false,
+        "trust_seeking": false,
+        "product_fit_concern": false,
+        "checkout_friction": false,
+        "delivery_concern": false,
+        "comparison_behavior": false,
+        "low_purchase_intent": true,
+        "purchase_intent": "low"
+      },
+      "evidence": [
+        "User zoomed or inspected product images 1 times."
+      ],
+      "recommended_actions": [
+        "Improve size chart visibility and clarity.",
+        "Add AI-based size recommendation or fit guide.",
+        "Show customer fit reviews such as 'true to size' feedback."
+      ]
+    },
+    {
+      "session_id": "sess_931525",
+      "user_id": "anon_6963",
+      "device": "desktop",
+      "predicted_reason": "low_purchase_intent",
+      "secondary_reason": null,
+      "ground_truth_reason": "trust_concern",
+      "is_correct": false,
+      "confidence_score": 0.88,
+      "confidence_level": "high",
+      "reason_scores": {
+        "price_concern": 0.0,
+        "trust_concern": 0.0,
+        "product_fit_concern": 0.0,
+        "checkout_friction": 0.0,
+        "delivery_concern": 0.0,
+        "comparison_shopping": 0.3,
+        "product_information_gap": 0.0,
+        "low_purchase_intent": 2.3
+      },
+      "preprocessing": {
+        "session_id": "sess_931525",
+        "user_id": "anon_6963",
+        "device": "desktop",
+        "session_duration": 0,
+        "total_events": 18,
+        "page_views": 8,
+        "clicks": 7,
+        "scrolls": 2,
+        "max_scroll_depth": 0,
+        "avg_scroll_depth": 0,
+        "unique_pages": 3,
+        "pages_visited": [
+          "/",
+          "/products/sample-product",
+          "product"
+        ],
+        "entry_page": "/",
+        "actual_exit_page": "product",
+        "ground_truth": {
+          "primary_reason": "trust_concern",
+          "drop_off_stage": "product",
+          "persona": "trust_seeker"
+        }
+      },
+      "behavior_metrics": {
+        "price_checks": 0,
+        "coupon_searches": 0,
+        "review_checks": 0,
+        "return_policy_checks": 0,
+        "size_chart_opens": 0,
+        "image_zooms": 0,
+        "cart_additions": 0,
+        "checkout_attempts": 0,
+        "login_or_account_hits": 0,
+        "delivery_checks": 0,
+        "comparison_actions": 0,
+        "product_detail_checks": 0,
+        "faq_checks": 0,
+        "material_checks": 0,
+        "spec_checks": 0,
+        "back_clicks": 0,
+        "exit_clicks": 1,
+        "product_page_visits": 1,
+        "cta_clicks": 0
+      },
+      "signals": {
+        "price_sensitive": false,
+        "trust_seeking": false,
+        "product_fit_concern": false,
+        "checkout_friction": false,
+        "delivery_concern": false,
+        "comparison_behavior": false,
+        "low_purchase_intent": true,
+        "purchase_intent": "low"
+      },
+      "evidence": [
+        "Session duration was only 0 seconds.",
+        "CTA clicks were 0, indicating weak purchase intent."
+      ],
+      "recommended_actions": [
+        "Use personalized product recommendations.",
+        "Improve homepage hero section and product discovery.",
+        "Retarget user later with relevant offers."
+      ]
+    },
+    {
+      "session_id": "sess_0b42f8",
+      "user_id": "anon_4223",
+      "device": "desktop",
+      "predicted_reason": "product_fit_concern",
+      "secondary_reason": null,
+      "ground_truth_reason": "low_purchase_intent",
+      "is_correct": false,
+      "confidence_score": 0.43,
+      "confidence_level": "low",
+      "reason_scores": {
+        "price_concern": 0.0,
+        "trust_concern": 0.0,
+        "product_fit_concern": 0.6,
+        "checkout_friction": 0.0,
+        "delivery_concern": 0.0,
+        "comparison_shopping": 0.6,
+        "product_information_gap": 0.2,
+        "low_purchase_intent": 0
+      },
+      "preprocessing": {
+        "session_id": "sess_0b42f8",
+        "user_id": "anon_4223",
+        "device": "desktop",
+        "session_duration": 0,
+        "total_events": 19,
+        "page_views": 3,
+        "clicks": 5,
+        "scrolls": 6,
+        "max_scroll_depth": 0,
+        "avg_scroll_depth": 0,
+        "unique_pages": 4,
+        "pages_visited": [
+          "/",
+          "/products/browse",
+          "/products/sample-product",
+          "EXIT"
+        ],
+        "entry_page": "/",
+        "actual_exit_page": "EXIT",
+        "ground_truth": {
+          "primary_reason": "low_purchase_intent",
+          "drop_off_stage": "home",
+          "persona": "low_intent_browser"
+        }
+      },
+      "behavior_metrics": {
+        "price_checks": 0,
+        "coupon_searches": 0,
+        "review_checks": 0,
+        "return_policy_checks": 0,
+        "size_chart_opens": 0,
+        "image_zooms": 1,
+        "cart_additions": 0,
+        "checkout_attempts": 0,
+        "login_or_account_hits": 0,
+        "delivery_checks": 0,
+        "comparison_actions": 0,
+        "product_detail_checks": 0,
+        "faq_checks": 0,
+        "material_checks": 0,
+        "spec_checks": 0,
+        "back_clicks": 0,
+        "exit_clicks": 3,
+        "product_page_visits": 2,
+        "cta_clicks": 0
+      },
+      "signals": {
+        "price_sensitive": false,
+        "trust_seeking": false,
+        "product_fit_concern": false,
+        "checkout_friction": false,
+        "delivery_concern": false,
+        "comparison_behavior": false,
+        "low_purchase_intent": true,
+        "purchase_intent": "low"
+      },
+      "evidence": [
+        "User zoomed or inspected product images 1 times."
+      ],
+      "recommended_actions": [
+        "Improve size chart visibility and clarity.",
+        "Add AI-based size recommendation or fit guide.",
+        "Show customer fit reviews such as 'true to size' feedback."
+      ]
+    },
+    {
+      "session_id": "sess_249125",
+      "user_id": "anon_2876",
+      "device": "desktop",
+      "predicted_reason": "product_fit_concern",
+      "secondary_reason": null,
+      "ground_truth_reason": "low_purchase_intent",
+      "is_correct": false,
+      "confidence_score": 0.55,
+      "confidence_level": "medium",
+      "reason_scores": {
+        "price_concern": 0.0,
+        "trust_concern": 0.0,
+        "product_fit_concern": 0.6,
+        "checkout_friction": 0.0,
+        "delivery_concern": 0.0,
+        "comparison_shopping": 0.3,
+        "product_information_gap": 0.2,
+        "low_purchase_intent": 0
+      },
+      "preprocessing": {
+        "session_id": "sess_249125",
+        "user_id": "anon_2876",
+        "device": "desktop",
+        "session_duration": 0,
+        "total_events": 18,
+        "page_views": 4,
+        "clicks": 5,
+        "scrolls": 3,
+        "max_scroll_depth": 0,
+        "avg_scroll_depth": 0,
+        "unique_pages": 4,
+        "pages_visited": [
+          "/",
+          "/browse",
+          "/products/sample-product",
+          "/exit"
+        ],
+        "entry_page": "/",
+        "actual_exit_page": "/exit",
+        "ground_truth": {
+          "primary_reason": "low_purchase_intent",
+          "drop_off_stage": "home",
+          "persona": "low_intent_browser"
+        }
+      },
+      "behavior_metrics": {
+        "price_checks": 0,
+        "coupon_searches": 0,
+        "review_checks": 0,
+        "return_policy_checks": 0,
+        "size_chart_opens": 0,
+        "image_zooms": 1,
+        "cart_additions": 0,
+        "checkout_attempts": 0,
+        "login_or_account_hits": 0,
+        "delivery_checks": 0,
+        "comparison_actions": 0,
+        "product_detail_checks": 0,
+        "faq_checks": 0,
+        "material_checks": 0,
+        "spec_checks": 0,
+        "back_clicks": 0,
+        "exit_clicks": 4,
+        "product_page_visits": 1,
+        "cta_clicks": 0
+      },
+      "signals": {
+        "price_sensitive": false,
+        "trust_seeking": false,
+        "product_fit_concern": false,
+        "checkout_friction": false,
+        "delivery_concern": false,
+        "comparison_behavior": false,
+        "low_purchase_intent": true,
+        "purchase_intent": "low"
+      },
+      "evidence": [
+        "User zoomed or inspected product images 1 times."
+      ],
+      "recommended_actions": [
+        "Improve size chart visibility and clarity.",
+        "Add AI-based size recommendation or fit guide.",
+        "Show customer fit reviews such as 'true to size' feedback."
+      ]
+    },
+    {
+      "session_id": "sess_52515f",
+      "user_id": "anon_8132",
+      "device": "desktop",
+      "predicted_reason": "product_fit_concern",
+      "secondary_reason": null,
+      "ground_truth_reason": "low_purchase_intent",
+      "is_correct": false,
+      "confidence_score": 0.6,
+      "confidence_level": "medium",
+      "reason_scores": {
+        "price_concern": 0.0,
+        "trust_concern": 0.0,
+        "product_fit_concern": 1.7999999999999998,
+        "checkout_friction": 0.0,
+        "delivery_concern": 0.0,
+        "comparison_shopping": 0.6,
+        "product_information_gap": 0.6000000000000001,
+        "low_purchase_intent": 0
+      },
+      "preprocessing": {
+        "session_id": "sess_52515f",
+        "user_id": "anon_8132",
+        "device": "desktop",
+        "session_duration": 0,
+        "total_events": 21,
+        "page_views": 3,
+        "clicks": 3,
+        "scrolls": 5,
+        "max_scroll_depth": 0,
+        "avg_scroll_depth": 0,
+        "unique_pages": 4,
+        "pages_visited": [
+          "/",
+          "/products/browse",
+          "/products/sample-product",
+          "EXIT"
+        ],
+        "entry_page": "/",
+        "actual_exit_page": "EXIT",
+        "ground_truth": {
+          "primary_reason": "low_purchase_intent",
+          "drop_off_stage": "home",
+          "persona": "low_intent_browser"
+        }
+      },
+      "behavior_metrics": {
+        "price_checks": 0,
+        "coupon_searches": 0,
+        "review_checks": 0,
+        "return_policy_checks": 0,
+        "size_chart_opens": 0,
+        "image_zooms": 3,
+        "cart_additions": 0,
+        "checkout_attempts": 0,
+        "login_or_account_hits": 0,
+        "delivery_checks": 0,
+        "comparison_actions": 0,
+        "product_detail_checks": 0,
+        "faq_checks": 0,
+        "material_checks": 0,
+        "spec_checks": 0,
+        "back_clicks": 0,
+        "exit_clicks": 8,
+        "product_page_visits": 2,
+        "cta_clicks": 0
+      },
+      "signals": {
+        "price_sensitive": false,
+        "trust_seeking": false,
+        "product_fit_concern": false,
+        "checkout_friction": false,
+        "delivery_concern": false,
+        "comparison_behavior": false,
+        "low_purchase_intent": true,
+        "purchase_intent": "low"
+      },
+      "evidence": [
+        "User zoomed or inspected product images 3 times."
+      ],
+      "recommended_actions": [
+        "Improve size chart visibility and clarity.",
+        "Add AI-based size recommendation or fit guide.",
+        "Show customer fit reviews such as 'true to size' feedback."
+      ]
+    },
+    {
+      "session_id": "sess_414705",
+      "user_id": "anon_3032",
+      "device": "desktop",
+      "predicted_reason": "comparison_shopping",
+      "secondary_reason": null,
+      "ground_truth_reason": "low_purchase_intent",
+      "is_correct": false,
+      "confidence_score": 1.0,
+      "confidence_level": "high",
+      "reason_scores": {
+        "price_concern": 0.0,
+        "trust_concern": 0.0,
+        "product_fit_concern": 0.0,
+        "checkout_friction": 0.0,
+        "delivery_concern": 0.0,
+        "comparison_shopping": 0.6,
+        "product_information_gap": 0.0,
+        "low_purchase_intent": 0
+      },
+      "preprocessing": {
+        "session_id": "sess_414705",
+        "user_id": "anon_3032",
+        "device": "desktop",
+        "session_duration": 0,
+        "total_events": 17,
+        "page_views": 5,
+        "clicks": 3,
+        "scrolls": 4,
+        "max_scroll_depth": 0,
+        "avg_scroll_depth": 0,
+        "unique_pages": 4,
+        "pages_visited": [
+          "/",
+          "/products/browse",
+          "/products/sample-product",
+          "EXIT"
+        ],
+        "entry_page": "/",
+        "actual_exit_page": "EXIT",
+        "ground_truth": {
+          "primary_reason": "low_purchase_intent",
+          "drop_off_stage": "home",
+          "persona": "low_intent_browser"
+        }
+      },
+      "behavior_metrics": {
+        "price_checks": 0,
+        "coupon_searches": 0,
+        "review_checks": 0,
+        "return_policy_checks": 0,
+        "size_chart_opens": 0,
+        "image_zooms": 0,
+        "cart_additions": 0,
+        "checkout_attempts": 0,
+        "login_or_account_hits": 0,
+        "delivery_checks": 0,
+        "comparison_actions": 0,
+        "product_detail_checks": 0,
+        "faq_checks": 0,
+        "material_checks": 0,
+        "spec_checks": 0,
+        "back_clicks": 0,
+        "exit_clicks": 4,
+        "product_page_visits": 2,
+        "cta_clicks": 0
+      },
+      "signals": {
+        "price_sensitive": false,
+        "trust_seeking": false,
+        "product_fit_concern": false,
+        "checkout_friction": false,
+        "delivery_concern": false,
+        "comparison_behavior": false,
+        "low_purchase_intent": true,
+        "purchase_intent": "low"
+      },
+      "evidence": [
+        "User visited multiple product pages without moving to checkout."
+      ],
+      "recommended_actions": [
+        "Add product comparison table.",
+        "Highlight unique selling points clearly.",
+        "Show competitor-price/value comparison if possible."
+      ]
+    },
+    {
+      "session_id": "sess_98f248",
+      "user_id": "anon_3623",
+      "device": "desktop",
+      "predicted_reason": "product_fit_concern",
+      "secondary_reason": null,
+      "ground_truth_reason": "low_purchase_intent",
+      "is_correct": false,
+      "confidence_score": 0.43,
+      "confidence_level": "low",
+      "reason_scores": {
+        "price_concern": 0.0,
+        "trust_concern": 0.0,
+        "product_fit_concern": 0.6,
+        "checkout_friction": 0.0,
+        "delivery_concern": 0.0,
+        "comparison_shopping": 0.6,
+        "product_information_gap": 0.2,
+        "low_purchase_intent": 0
+      },
+      "preprocessing": {
+        "session_id": "sess_98f248",
+        "user_id": "anon_3623",
+        "device": "desktop",
+        "session_duration": 0,
+        "total_events": 18,
+        "page_views": 5,
+        "clicks": 5,
+        "scrolls": 3,
+        "max_scroll_depth": 0,
+        "avg_scroll_depth": 0,
+        "unique_pages": 6,
+        "pages_visited": [
+          "/",
+          "/browse/products",
+          "/products/sample-product",
+          "/cart",
+          "/browse",
+          "/",
+          "EXIT"
+        ],
+        "entry_page": "/",
+        "actual_exit_page": "EXIT",
+        "ground_truth": {
+          "primary_reason": "low_purchase_intent",
+          "drop_off_stage": "home",
+          "persona": "low_intent_browser"
+        }
+      },
+      "behavior_metrics": {
+        "price_checks": 0,
+        "coupon_searches": 0,
+        "review_checks": 0,
+        "return_policy_checks": 0,
+        "size_chart_opens": 0,
+        "image_zooms": 1,
+        "cart_additions": 0,
+        "checkout_attempts": 0,
+        "login_or_account_hits": 0,
+        "delivery_checks": 0,
+        "comparison_actions": 0,
+        "product_detail_checks": 0,
+        "faq_checks": 0,
+        "material_checks": 0,
+        "spec_checks": 0,
+        "back_clicks": 0,
+        "exit_clicks": 3,
+        "product_page_visits": 2,
+        "cta_clicks": 0
+      },
+      "signals": {
+        "price_sensitive": false,
+        "trust_seeking": false,
+        "product_fit_concern": false,
+        "checkout_friction": false,
+        "delivery_concern": false,
+        "comparison_behavior": false,
+        "low_purchase_intent": true,
+        "purchase_intent": "low"
+      },
+      "evidence": [
+        "User zoomed or inspected product images 1 times."
+      ],
+      "recommended_actions": [
+        "Improve size chart visibility and clarity.",
+        "Add AI-based size recommendation or fit guide.",
+        "Show customer fit reviews such as 'true to size' feedback."
+      ]
+    },
+    {
+      "session_id": "sess_ffe897",
+      "user_id": "anon_8284",
+      "device": "desktop",
+      "predicted_reason": "product_fit_concern",
+      "secondary_reason": null,
+      "ground_truth_reason": "low_purchase_intent",
+      "is_correct": false,
+      "confidence_score": 0.43,
+      "confidence_level": "low",
+      "reason_scores": {
+        "price_concern": 0.0,
+        "trust_concern": 0.0,
+        "product_fit_concern": 0.6,
+        "checkout_friction": 0.0,
+        "delivery_concern": 0.0,
+        "comparison_shopping": 0.6,
+        "product_information_gap": 0.2,
+        "low_purchase_intent": 0
+      },
+      "preprocessing": {
+        "session_id": "sess_ffe897",
+        "user_id": "anon_8284",
+        "device": "desktop",
+        "session_duration": 0,
+        "total_events": 17,
+        "page_views": 5,
+        "clicks": 3,
+        "scrolls": 3,
+        "max_scroll_depth": 0,
+        "avg_scroll_depth": 0,
+        "unique_pages": 4,
+        "pages_visited": [
+          "/",
+          "/products/browse",
+          "/products/sample-product",
+          "EXIT"
+        ],
+        "entry_page": "/",
+        "actual_exit_page": "EXIT",
+        "ground_truth": {
+          "primary_reason": "low_purchase_intent",
+          "drop_off_stage": "home",
+          "persona": "low_intent_browser"
+        }
+      },
+      "behavior_metrics": {
+        "price_checks": 0,
+        "coupon_searches": 0,
+        "review_checks": 0,
+        "return_policy_checks": 0,
+        "size_chart_opens": 0,
+        "image_zooms": 1,
+        "cart_additions": 0,
+        "checkout_attempts": 0,
+        "login_or_account_hits": 0,
+        "delivery_checks": 0,
+        "comparison_actions": 0,
+        "product_detail_checks": 0,
+        "faq_checks": 0,
+        "material_checks": 0,
+        "spec_checks": 0,
+        "back_clicks": 0,
+        "exit_clicks": 3,
+        "product_page_visits": 2,
+        "cta_clicks": 0
+      },
+      "signals": {
+        "price_sensitive": false,
+        "trust_seeking": false,
+        "product_fit_concern": false,
+        "checkout_friction": false,
+        "delivery_concern": false,
+        "comparison_behavior": false,
+        "low_purchase_intent": true,
+        "purchase_intent": "low"
+      },
+      "evidence": [
+        "User zoomed or inspected product images 1 times."
+      ],
+      "recommended_actions": [
+        "Improve size chart visibility and clarity.",
+        "Add AI-based size recommendation or fit guide.",
+        "Show customer fit reviews such as 'true to size' feedback."
+      ]
+    },
+    {
+      "session_id": "sess_343b17",
+      "user_id": "anon_9097",
+      "device": "desktop",
+      "predicted_reason": "product_fit_concern",
+      "secondary_reason": null,
+      "ground_truth_reason": "low_purchase_intent",
+      "is_correct": false,
+      "confidence_score": 0.43,
+      "confidence_level": "low",
+      "reason_scores": {
+        "price_concern": 0.0,
+        "trust_concern": 0.0,
+        "product_fit_concern": 0.6,
+        "checkout_friction": 0.0,
+        "delivery_concern": 0.0,
+        "comparison_shopping": 0.6,
+        "product_information_gap": 0.2,
+        "low_purchase_intent": 0
+      },
+      "preprocessing": {
+        "session_id": "sess_343b17",
+        "user_id": "anon_9097",
+        "device": "desktop",
+        "session_duration": 0,
+        "total_events": 18,
+        "page_views": 3,
+        "clicks": 6,
+        "scrolls": 4,
+        "max_scroll_depth": 0,
+        "avg_scroll_depth": 0,
+        "unique_pages": 4,
+        "pages_visited": [
+          "/",
+          "/products/sample-product",
+          "/products/browse",
+          "EXIT"
+        ],
+        "entry_page": "/",
+        "actual_exit_page": "EXIT",
+        "ground_truth": {
+          "primary_reason": "low_purchase_intent",
+          "drop_off_stage": "home",
+          "persona": "low_intent_browser"
+        }
+      },
+      "behavior_metrics": {
+        "price_checks": 0,
+        "coupon_searches": 0,
+        "review_checks": 0,
+        "return_policy_checks": 0,
+        "size_chart_opens": 0,
+        "image_zooms": 1,
+        "cart_additions": 0,
+        "checkout_attempts": 0,
+        "login_or_account_hits": 0,
+        "delivery_checks": 0,
+        "comparison_actions": 0,
+        "product_detail_checks": 0,
+        "faq_checks": 0,
+        "material_checks": 0,
+        "spec_checks": 0,
+        "back_clicks": 0,
+        "exit_clicks": 3,
+        "product_page_visits": 2,
+        "cta_clicks": 0
+      },
+      "signals": {
+        "price_sensitive": false,
+        "trust_seeking": false,
+        "product_fit_concern": false,
+        "checkout_friction": false,
+        "delivery_concern": false,
+        "comparison_behavior": false,
+        "low_purchase_intent": true,
+        "purchase_intent": "low"
+      },
+      "evidence": [
+        "User zoomed or inspected product images 1 times."
+      ],
+      "recommended_actions": [
+        "Improve size chart visibility and clarity.",
+        "Add AI-based size recommendation or fit guide.",
+        "Show customer fit reviews such as 'true to size' feedback."
+      ]
+    },
+    {
+      "session_id": "sess_4f55a4",
+      "user_id": "anon_7203",
+      "device": "desktop",
+      "predicted_reason": "product_fit_concern",
+      "secondary_reason": null,
+      "ground_truth_reason": "low_purchase_intent",
+      "is_correct": false,
+      "confidence_score": 0.43,
+      "confidence_level": "low",
+      "reason_scores": {
+        "price_concern": 0.0,
+        "trust_concern": 0.0,
+        "product_fit_concern": 0.6,
+        "checkout_friction": 0.0,
+        "delivery_concern": 0.0,
+        "comparison_shopping": 0.6,
+        "product_information_gap": 0.2,
+        "low_purchase_intent": 0
+      },
+      "preprocessing": {
+        "session_id": "sess_4f55a4",
+        "user_id": "anon_7203",
+        "device": "desktop",
+        "session_duration": 0,
+        "total_events": 17,
+        "page_views": 3,
+        "clicks": 5,
+        "scrolls": 3,
+        "max_scroll_depth": 0,
+        "avg_scroll_depth": 0,
+        "unique_pages": 4,
+        "pages_visited": [
+          "/",
+          "/products/browse",
+          "/products/sample-product",
+          "EXIT"
+        ],
+        "entry_page": "/",
+        "actual_exit_page": "EXIT",
+        "ground_truth": {
+          "primary_reason": "low_purchase_intent",
+          "drop_off_stage": "home",
+          "persona": "low_intent_browser"
+        }
+      },
+      "behavior_metrics": {
+        "price_checks": 0,
+        "coupon_searches": 0,
+        "review_checks": 0,
+        "return_policy_checks": 0,
+        "size_chart_opens": 0,
+        "image_zooms": 1,
+        "cart_additions": 0,
+        "checkout_attempts": 0,
+        "login_or_account_hits": 0,
+        "delivery_checks": 0,
+        "comparison_actions": 0,
+        "product_detail_checks": 0,
+        "faq_checks": 0,
+        "material_checks": 0,
+        "spec_checks": 0,
+        "back_clicks": 0,
+        "exit_clicks": 4,
+        "product_page_visits": 2,
+        "cta_clicks": 0
+      },
+      "signals": {
+        "price_sensitive": false,
+        "trust_seeking": false,
+        "product_fit_concern": false,
+        "checkout_friction": false,
+        "delivery_concern": false,
+        "comparison_behavior": false,
+        "low_purchase_intent": true,
+        "purchase_intent": "low"
+      },
+      "evidence": [
+        "User zoomed or inspected product images 1 times."
+      ],
+      "recommended_actions": [
+        "Improve size chart visibility and clarity.",
+        "Add AI-based size recommendation or fit guide.",
+        "Show customer fit reviews such as 'true to size' feedback."
+      ]
+    },
+    {
+      "session_id": "sess_a0ac28",
+      "user_id": "anon_3103",
+      "device": "desktop",
+      "predicted_reason": "comparison_shopping",
+      "secondary_reason": null,
+      "ground_truth_reason": "low_purchase_intent",
+      "is_correct": false,
+      "confidence_score": 1.0,
+      "confidence_level": "high",
+      "reason_scores": {
+        "price_concern": 0.0,
+        "trust_concern": 0.0,
+        "product_fit_concern": 0.0,
+        "checkout_friction": 0.0,
+        "delivery_concern": 0.0,
+        "comparison_shopping": 0.6,
+        "product_information_gap": 0.0,
+        "low_purchase_intent": 0
+      },
+      "preprocessing": {
+        "session_id": "sess_a0ac28",
+        "user_id": "anon_3103",
+        "device": "desktop",
+        "session_duration": 0,
+        "total_events": 10,
+        "page_views": 3,
+        "clicks": 4,
+        "scrolls": 2,
+        "max_scroll_depth": 0,
+        "avg_scroll_depth": 0,
+        "unique_pages": 4,
+        "pages_visited": [
+          "/",
+          "/products/browse",
+          "/products/sample-product",
+          "EXIT"
+        ],
+        "entry_page": "/",
+        "actual_exit_page": "EXIT",
+        "ground_truth": {
+          "primary_reason": "low_purchase_intent",
+          "drop_off_stage": "home",
+          "persona": "low_intent_browser"
+        }
+      },
+      "behavior_metrics": {
+        "price_checks": 0,
+        "coupon_searches": 0,
+        "review_checks": 0,
+        "return_policy_checks": 0,
+        "size_chart_opens": 0,
+        "image_zooms": 0,
+        "cart_additions": 0,
+        "checkout_attempts": 0,
+        "login_or_account_hits": 0,
+        "delivery_checks": 0,
+        "comparison_actions": 0,
+        "product_detail_checks": 0,
+        "faq_checks": 0,
+        "material_checks": 0,
+        "spec_checks": 0,
+        "back_clicks": 0,
+        "exit_clicks": 2,
+        "product_page_visits": 2,
+        "cta_clicks": 0
+      },
+      "signals": {
+        "price_sensitive": false,
+        "trust_seeking": false,
+        "product_fit_concern": false,
+        "checkout_friction": false,
+        "delivery_concern": false,
+        "comparison_behavior": false,
+        "low_purchase_intent": true,
+        "purchase_intent": "low"
+      },
+      "evidence": [
+        "User visited multiple product pages without moving to checkout."
+      ],
+      "recommended_actions": [
+        "Add product comparison table.",
+        "Highlight unique selling points clearly.",
+        "Show competitor-price/value comparison if possible."
+      ]
+    }
+  ]
+}
