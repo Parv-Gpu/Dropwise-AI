@@ -4,11 +4,14 @@ from langchain_groq import ChatGroq
 from dotenv import load_dotenv
 import json
 import os
+import time
+import uuid
+import random
 
 load_dotenv()
 
 llm = ChatGroq(
-    model="llama-3.3-70b-versatile",
+    model="llama-3.1-8b-instant",
     temperature=0.8,
     api_key=os.getenv("GROQ_API_KEY")
 )
@@ -87,20 +90,6 @@ Return JSON with this EXACT structure:
       "page": "/",
       "element": null,
       "depth_percent": null
-    }},
-    {{
-      "type": "click",
-      "timestamp": 1718000010,
-      "page": "/products/sample-product",
-      "element": "product_image",
-      "depth_percent": null
-    }},
-    {{
-      "type": "scroll",
-      "timestamp": 1718000020,
-      "page": "/products/sample-product",
-      "element": null,
-      "depth_percent": 70
     }}
   ],
   "pages_visited": ["/", "/products/sample-product", "EXIT"]
@@ -138,6 +127,10 @@ def generate_session(scenario: dict) -> dict:
 
     session = json.loads(clean_response)
 
+    # Force unique IDs because LLM often repeats same IDs
+    session["session_id"] = f"sess_{uuid.uuid4().hex[:6]}"
+    session["user_id"] = f"anon_{random.randint(1000, 9999)}"
+
     session["ground_truth"] = {
         "primary_reason": scenario["drop_off_reason"],
         "drop_off_stage": scenario["stage"],
@@ -147,25 +140,44 @@ def generate_session(scenario: dict) -> dict:
     return session
 
 
-def generate_dataset(sessions_per_scenario: int = 2) -> list:
+def generate_dataset(sessions_per_scenario: int = 5) -> list:
     dataset = []
 
     for scenario in SCENARIOS:
         print(f"\nGenerating {sessions_per_scenario} sessions for: {scenario['drop_off_reason']}")
 
-        for i in range(sessions_per_scenario):
+        generated_count = 0
+        attempts = 0
+        max_attempts = sessions_per_scenario * 4
+
+        while generated_count < sessions_per_scenario and attempts < max_attempts:
+            attempts += 1
+
             try:
                 session = generate_session(scenario)
                 dataset.append(session)
-                print(f"  ✓ Generated session {i + 1}")
+                generated_count += 1
+                print(f"  ✓ Generated session {generated_count}")
+
+                time.sleep(0.5)
+
             except Exception as e:
-                print(f"  ✗ Failed session {i + 1}: {e}")
+                print(f"  ✗ Failed attempt {attempts}: {e}")
+                time.sleep(1)
+
+        if generated_count < sessions_per_scenario:
+            print(f"  ⚠ Only generated {generated_count}/{sessions_per_scenario}")
 
     return dataset
 
 
 if __name__ == "__main__":
-    dataset = generate_dataset(sessions_per_scenario=2)
+    sessions_count = 10
+
+    print(f"DEBUG sessions_per_scenario = {sessions_count}")
+    print(f"DEBUG expected sessions = {len(SCENARIOS) * sessions_count}")
+
+    dataset = generate_dataset(sessions_per_scenario=sessions_count)
 
     os.makedirs("data", exist_ok=True)
 
