@@ -60,6 +60,39 @@ def run_pipeline(session):
     }
 
 
+def calculate_category_accuracy(results):
+    category_stats = {}
+
+    for result in results:
+        category = result.get("ground_truth_reason")
+
+        if category not in category_stats:
+            category_stats[category] = {
+                "total": 0,
+                "correct": 0
+            }
+
+        category_stats[category]["total"] += 1
+
+        if result.get("is_correct"):
+            category_stats[category]["correct"] += 1
+
+    category_accuracy = {}
+
+    for category, stats in category_stats.items():
+        category_accuracy[category] = {
+            "total": stats["total"],
+            "correct": stats["correct"],
+            "wrong": stats["total"] - stats["correct"],
+            "accuracy": round(
+                (stats["correct"] / stats["total"]) * 100,
+                2
+            ) if stats["total"] > 0 else 0
+        }
+
+    return category_accuracy
+
+
 if __name__ == "__main__":
     input_file = "data/synthetic_sessions.jsonl"
     output_results_file = "data/evaluation_results.json"
@@ -86,6 +119,8 @@ if __name__ == "__main__":
     predicted_counter = Counter(result["predicted_reason"] for result in results)
     ground_truth_counter = Counter(result["ground_truth_reason"] for result in results)
 
+    category_accuracy = calculate_category_accuracy(results)
+
     summary = {
         "total_sessions": total,
         "correct_predictions": correct,
@@ -93,6 +128,7 @@ if __name__ == "__main__":
         "accuracy": accuracy,
         "predicted_reason_distribution": dict(predicted_counter),
         "ground_truth_reason_distribution": dict(ground_truth_counter),
+        "category_accuracy": category_accuracy,
         "wrong_prediction_details": wrong_results
     }
 
@@ -101,6 +137,15 @@ if __name__ == "__main__":
     print(f"Correct Predictions: {correct}")
     print(f"Wrong Predictions: {len(wrong_results)}")
     print(f"Accuracy: {accuracy}%")
+
+    print("\n===== CATEGORY-WISE ACCURACY =====")
+    for category, stats in category_accuracy.items():
+        print(
+            f"{category} | "
+            f"Correct: {stats['correct']}/{stats['total']} | "
+            f"Wrong: {stats['wrong']} | "
+            f"Accuracy: {stats['accuracy']}%"
+        )
 
     print("\n===== SESSION-WISE RESULTS =====")
     for index, result in enumerate(results, start=1):

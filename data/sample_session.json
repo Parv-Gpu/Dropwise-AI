@@ -1,0 +1,192 @@
+{
+  "session_id": "sess_79ffb9",
+  "user_id": "anon_7519",
+  "device": "desktop",
+  "start_time": 1643723400,
+  "events": [
+    {
+      "type": "page_view",
+      "timestamp": 1643723400,
+      "page": "/",
+      "element": null,
+      "depth_percent": null
+    },
+    {
+      "type": "scroll",
+      "timestamp": 1643723410,
+      "page": "/",
+      "element": "price",
+      "depth_percent": 50.0
+    },
+    {
+      "type": "page_view",
+      "timestamp": 1643723420,
+      "page": "/products/sample-product",
+      "element": null,
+      "depth_percent": null
+    },
+    {
+      "type": "click",
+      "timestamp": 1643723430,
+      "page": "/products/sample-product",
+      "element": "coupon",
+      "depth_percent": null
+    },
+    {
+      "type": "page_view",
+      "timestamp": 1643723440,
+      "page": "/products/sample-product",
+      "element": null,
+      "depth_percent": null
+    },
+    {
+      "type": "input",
+      "timestamp": 1643723450,
+      "page": "/products/sample-product",
+      "element": "coupon-code",
+      "depth_percent": null
+    },
+    {
+      "type": "page_view",
+      "timestamp": 1643723460,
+      "page": "/products/sample-product",
+      "element": null,
+      "depth_percent": null
+    },
+    {
+      "type": "click",
+      "timestamp": 1643723470,
+      "page": "/products/sample-product",
+      "element": "discount",
+      "depth_percent": null
+    },
+    {
+      "type": "page_view",
+      "timestamp": 1643723480,
+      "page": "/products/sample-product",
+      "element": null,
+      "depth_percent": null
+    },
+    {
+      "type": "click",
+      "timestamp": 1643723490,
+      "page": "/products/sample-product",
+      "element": "summary",
+      "depth_percent": null
+    },
+    {
+      "type": "page_view",
+      "timestamp": 1643723500,
+      "page": "/products/sample-product",
+      "element": null,
+      "depth_percent": null
+    },
+    {
+      "type": "page_view",
+      "timestamp": 1643723510,
+      "page": "/cart",
+      "element": null,
+      "depth_percent": null
+    },
+    {
+      "type": "page_view",
+      "timestamp": 1643723520,
+      "page": "/cart",
+      "element": "summary",
+      "depth_percent": null
+    },
+    {
+      "type": "page_view",
+      "timestamp": 1643723530,
+      "page": "/cart",
+      "element": "total",
+      "depth_percent": null
+    },
+    {
+      "type": "exit",
+      "timestamp": 1643723540,
+      "page": "/cart",
+      "element": null,
+      "depth_percent": null
+    },
+    {
+      "type": "page_view",
+      "timestamp": 1643723540,
+      "page": "EXIT",
+      "element": null,
+      "depth_percent": null
+    },
+    {
+      "type": "click",
+      "timestamp": 1643723547,
+      "page": "/products/sample-product",
+      "element": "price",
+      "depth_percent": null
+    },
+    {
+      "type": "click",
+      "timestamp": 1643723560,
+      "page": "/cart/summary",
+      "element": "cart_total",
+      "depth_percent": null
+    },
+    {
+      "type": "search",
+      "timestamp": 1643723571,
+      "page": "/cart/coupon",
+      "element": "coupon",
+      "depth_percent": null
+    },
+    {
+      "type": "click",
+      "timestamp": 1643723577,
+      "page": "/cart/discount",
+      "element": "discount_offer",
+      "depth_percent": null
+    },
+    {
+      "type": "click",
+      "timestamp": 1643723582,
+      "page": "/cart/summary",
+      "element": "total_cost",
+      "depth_percent": null
+    },
+    {
+      "type": "exit",
+      "timestamp": 1643723597,
+      "page": "/cart/summary",
+      "element": "exit",
+      "depth_percent": null
+    }
+  ],
+  "pages_visited": [
+    "/",
+    "/",
+    "/products/sample-product",
+    "/products/sample-product",
+    "/products/sample-product",
+    "/products/sample-product",
+    "/products/sample-product",
+    "/products/sample-product",
+    "/products/sample-product",
+    "/products/sample-product",
+    "/products/sample-product",
+    "/cart",
+    "/cart",
+    "/cart",
+    "/cart",
+    "EXIT",
+    "/products/sample-product",
+    "/cart/summary",
+    "/cart/coupon",
+    "/cart/discount",
+    "/cart/summary",
+    "/cart/summary",
+    "EXIT"
+  ],
+  "ground_truth": {
+    "primary_reason": "price_concern",
+    "drop_off_stage": "cart",
+    "persona": "price_sensitive_shopper"
+  }
+}

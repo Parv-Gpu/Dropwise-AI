@@ -83,7 +83,13 @@ def preprocess_session(session: Dict[str, Any]) -> Dict[str, Any]:
     avg_scroll_depth = round(sum(scroll_depths) / len(scroll_depths), 2) if scroll_depths else 0
 
     entry_page = pages[0] if pages else None
-    actual_exit_page = pages[-1] if pages else None
+
+    real_pages = [
+    page for page in pages
+    if str(page).lower() != "exit"
+    ]
+
+    actual_exit_page = real_pages[-1] if real_pages else None
 
     return {
         "session_id": session.get("session_id"),
@@ -97,7 +103,7 @@ def preprocess_session(session: Dict[str, Any]) -> Dict[str, Any]:
         "max_scroll_depth": max_scroll_depth,
         "avg_scroll_depth": avg_scroll_depth,
         "unique_pages": len(set(pages)),
-        "pages_visited": session.get("pages_visited", []),
+        "pages_visited": pages,
         "entry_page": entry_page,
         "actual_exit_page": actual_exit_page,
         "ground_truth": session.get("ground_truth")

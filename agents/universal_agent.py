@@ -19,8 +19,11 @@ def generate_signals(
     )
 
     product_fit_concern = (
-    metrics.get("size_chart_opens", 0) >= 1
-    and metrics.get("image_zooms", 0) >= 1
+        metrics.get("size_chart_opens", 0) >= 1
+        or (
+            metrics.get("image_zooms", 0) >= 2
+            and metrics.get("return_policy_checks", 0) >= 1
+        )
     )
 
     checkout_friction = (
@@ -33,25 +36,32 @@ def generate_signals(
     )
 
     comparison_behavior = (
-        metrics.get("comparison_actions", 0) >= 2
+        metrics.get("comparison_actions", 0) >= 1
         or metrics.get("product_page_visits", 0) >= 3
     )
 
-    has_strong_signal = (
-        price_sensitive
-        or trust_seeking
-        or product_fit_concern
-        or checkout_friction
-        or delivery_concern
-        or comparison_behavior
+    product_information_gap = (
+        metrics.get("product_detail_checks", 0) >= 2
+        or metrics.get("faq_checks", 0) >= 1
+        or metrics.get("material_checks", 0) >= 1
     )
+
+    has_strong_signal = any([
+        price_sensitive,
+        trust_seeking,
+        product_fit_concern,
+        checkout_friction,
+        delivery_concern,
+        comparison_behavior,
+        product_information_gap
+    ])
 
     low_purchase_intent = (
         not has_strong_signal
         and metrics.get("cart_additions", 0) == 0
         and metrics.get("checkout_attempts", 0) == 0
         and metrics.get("cta_clicks", 0) == 0
-        and metrics.get("product_page_visits", 0) <= 2
+        and metrics.get("engagement_score", 0) <= 2
     )
 
     if metrics.get("checkout_attempts", 0) > 0:
@@ -59,6 +69,7 @@ def generate_signals(
     elif (
         metrics.get("cart_additions", 0) > 0
         or metrics.get("cta_clicks", 0) > 0
+        or metrics.get("engagement_score", 0) >= 3
         or has_strong_signal
     ):
         purchase_intent = "medium"
@@ -72,6 +83,7 @@ def generate_signals(
         "checkout_friction": checkout_friction,
         "delivery_concern": delivery_concern,
         "comparison_behavior": comparison_behavior,
+        "product_information_gap": product_information_gap,
         "low_purchase_intent": low_purchase_intent,
         "purchase_intent": purchase_intent
     }
