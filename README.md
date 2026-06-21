@@ -213,13 +213,6 @@ Generate downloadable business reports containing:
 
 ---
 
-## Review Funnel & Quality Metrics
-
-<p align="center">
-  <img src="assets/dashboard-review.jpeg" width="100%">
-</p>
-
----
 
 # Dashboard Analytics
 
