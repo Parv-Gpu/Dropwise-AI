@@ -13,6 +13,7 @@ import {
 } from "chart.js";
 import { Bar, Doughnut, Pie } from "react-chartjs-2";
 import "./App.css";
+const API_BASE_URL = "https://dropwise-ai-backend.onrender.com";
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, ArcElement, Tooltip, Legend);
 
@@ -109,7 +110,10 @@ function App() {
 
     try {
       setLoading(true);
-      const response = await axios.post("http://127.0.0.1:8000/upload-dataset", formData);
+      const response = await axios.post(
+  `${API_BASE_URL}/upload-dataset`,
+  formData
+);
       setDatasetResult(response.data);
       setPage(1);
     } catch (error) {
@@ -128,7 +132,10 @@ function App() {
 
     try {
       setLoading(true);
-      const response = await axios.post("http://127.0.0.1:8000/upload-session", formData);
+      const response = await axios.post(
+  `${API_BASE_URL}/upload-session`,
+  formData
+);
       setSingleResult(response.data);
     } catch (error) {
       console.error(error);
