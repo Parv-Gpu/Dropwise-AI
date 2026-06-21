@@ -1,7 +1,7 @@
 # DropWise AI
 
 <p align="center">
-  <img src="assets/dashboard-main.png" width="100%">
+  <img src="assets/dashboard-main.jpeg" width="100%">
 </p>
 
 <h3 align="center">
@@ -57,7 +57,7 @@ DropWise AI automatically identifies drop-off reasons and provides actionable re
 # System Architecture
 
 <p align="center">
-  <img src="assets/system-architecture.png" width="100%">
+  <img src="assets/system-architecture.jpeg" width="100%">
 </p>
 
 ### Architecture Components
@@ -184,7 +184,7 @@ Generate downloadable business reports containing:
 ## Main Dashboard
 
 <p align="center">
-  <img src="assets/dashboard-main.png" width="100%">
+  <img src="assets/dashboard-main.jpeg" width="100%">
 </p>
 
 ---
@@ -192,7 +192,7 @@ Generate downloadable business reports containing:
 ## Top Insights + Reason Distribution
 
 <p align="center">
-  <img src="assets/dashboard-insights.png" width="100%">
+  <img src="assets/dashboard-insights.jpeg" width="100%">
 </p>
 
 ---
@@ -200,7 +200,7 @@ Generate downloadable business reports containing:
 ## Accuracy & Confidence Analytics
 
 <p align="center">
-  <img src="assets/dashboard-analytics.png" width="100%">
+  <img src="assets/dashboard-analytics.jpeg" width="100%">
 </p>
 
 ---
@@ -208,7 +208,7 @@ Generate downloadable business reports containing:
 ## Heatmap Analysis
 
 <p align="center">
-  <img src="assets/dashboard-heatmap.png" width="100%">
+  <img src="assets/dashboard-heatmap.jpeg" width="100%">
 </p>
 
 ---
@@ -216,7 +216,7 @@ Generate downloadable business reports containing:
 ## Review Funnel & Quality Metrics
 
 <p align="center">
-  <img src="assets/dashboard-review.png" width="100%">
+  <img src="assets/dashboard-review.jpeg" width="100%">
 </p>
 
 ---
